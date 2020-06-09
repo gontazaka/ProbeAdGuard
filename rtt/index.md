@@ -53,7 +53,7 @@ RTTを5ms単位区切りにし度数分布表を作成、散布図にしたも�
 `resolve`は名前解決。主に`getaddrinfo()`。  
 `connect`はTCP 3-way handshakingからTLS session negotiationまでのうち`ssl`を除いた分。  
 `ssl`はSSL/TLS関連と思うが短すぎな気がする。openssl分からん。  
-`write`はGETリクエスト送信完了（ACK受信？）まで。
+`write`はGETリクエスト送信完了（ACK受信？）まで。  
 `request`はレスポンス受信完了まで。`write`と合算した方が比較しやすい。  
 `close`はディスクリプターの`close()`（Graceful Close？）まで。
 
@@ -65,5 +65,5 @@ RTTを5ms単位区切りにし度数分布表を作成、散布図にしたも�
 
 # 参考
 - AdGuard for Android: <https://adguard.com/adguard-android/overview.html>
-- HTTPing : <https://www.vanheusden.com/httping/>
-- Termux : <https://termux.com/>
+- HTTPing: <https://www.vanheusden.com/httping/>
+- Termux: <https://termux.com/>

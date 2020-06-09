@@ -1,16 +1,9 @@
 const fs = require('fs');
-const util = require('util');
 
 const logPaths = ['httping.https=on.json', 'httping.https=off.json', 'httping.protection=off.json'];
 
-function formatString(format, options) {
-    return util.format.apply(null, arguments);
-}
 function readFile(path) {
     return fs.readFileSync(path, 'utf8');
-}
-function writeFile(path, content, option) {
-    return fs.writeFileSync(path, content, option);
 }
 function writeFileArray(path, array, handler, option = null) {
     const wstream = fs.createWriteStream(path, option);

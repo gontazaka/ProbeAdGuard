@@ -19,9 +19,9 @@ Local VPN使用時のコネクションについて調べてみる。
 
 ## Firewallブロック
 ![FW block](./ag_vpncapture_fwblock.png)
-TCPコネクションを蹴っている。AFWall+ではタイムアウトしているような、AdGuardのFirewallではすぐさま応答が返るように見えるのはここに違いがありそう。  
+TCPコネクションを蹴っている。AFWall+ではタイムアウトしているように、AdGuardのFirewallではすぐさま応答が返るように見えるのはここに違いがありそう。  
 ### 追記
-AFWall+での設定は`REJECT reject-with icmp-port-unreachable`でDROP同様のようなので`REJECT reject-with tcp-reset`で追加してみたが上手くいかない。
+AFWall+での設定は`REJECT reject-with icmp-port-unreachable`でDROP同様のようなので`REJECT reject-with tcp-reset`を追加してみたが上手くいかない。
 
 ```sh
 iptables -I INPUT -m owner --uid-owner NNNNN -p tcp -j REJECT --reject-with tcp-reset
@@ -38,4 +38,4 @@ Graceful Close。RSTで切断かとも予想したがそれだとブラウザー
 
 # 参考
 - AdGuard for Android: <https://adguard.com/adguard-android/overview.html>
-- Tasker : <https://tasker.joaoapps.com/>
+- Tasker: <https://tasker.joaoapps.com/>
