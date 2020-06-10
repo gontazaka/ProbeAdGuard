@@ -20,12 +20,18 @@ Local VPN使用時のコネクションについて調べてみる。
 ## Firewallブロック
 ![FW block](./ag_vpncapture_fwblock.png)
 TCPコネクションを蹴っている。AFWall+ではタイムアウトしているように、AdGuardのFirewallではすぐさま応答が返るように見えるのはここに違いがありそう。  
-### 追記
+
+### 追記１
 AFWall+での設定は`REJECT reject-with icmp-port-unreachable`でDROP同様のようなので`REJECT reject-with tcp-reset`を追加してみたが上手くいかない。
 
 ```sh
 iptables -I OUTPUT -m owner --uid-owner NNNNN -p tcp -j REJECT --reject-with tcp-reset
 ```
+
+### 追記２
+
+上手くいかないのは誤ってINPUTチェインに追加したまま試したのが原因だった。  
+なお前述コマンドではテストのため`-I`しているが通常は`-A`で十分なはず。  
 
 ## ネットワークブロック
 ![NW block](./ag_vpncapture_nwblock.png)
