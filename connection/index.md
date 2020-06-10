@@ -3,7 +3,7 @@
 # 概要
 Local VPN使用時のコネクションについて調べてみる。  
 1つ目はFirewallで通信をブロックする動作。AFWall+(iptables)でのブロックとはAppの動作が違ったため。  
-2つ目は`HTTPSフィルタリング＝OFF`でのhttpsアクセスでネットワークブロック（`||example.com$`）する動作。DNSブロックしない時に何が起きているか。  
+2つ目は`HTTPSフィルタリング＝OFF`でのhttpsアクセスでネットワークブロック（`||example.com^`）する動作。DNSブロックしない時に何が起きているか。  
 
 # もの・こと
 
@@ -24,7 +24,7 @@ TCPコネクションを蹴っている。AFWall+ではタイムアウトして�
 AFWall+での設定は`REJECT reject-with icmp-port-unreachable`でDROP同様のようなので`REJECT reject-with tcp-reset`を追加してみたが上手くいかない。
 
 ```sh
-iptables -I INPUT -m owner --uid-owner NNNNN -p tcp -j REJECT --reject-with tcp-reset
+iptables -I OUTPUT -m owner --uid-owner NNNNN -p tcp -j REJECT --reject-with tcp-reset
 ```
 
 ## ネットワークブロック
