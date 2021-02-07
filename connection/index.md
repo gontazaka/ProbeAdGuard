@@ -31,7 +31,7 @@ iptables -I OUTPUT -m owner --uid-owner NNNNN -p tcp -j REJECT --reject-with tcp
 ### 追記２
 
 上手くいかないのは誤ってINPUTチェインに追加したまま試したのが原因だった。  
-なお前述コマンドではテストのため`-I`しているが通常は`-A`で十分なはず。  
+なお前述コマンドではテストのため`-I OUTPUT`しているが、AFWall+のカスタムスクリプトなら`-A afwall`でよい。  
 
 ## ネットワークブロック
 ![NW block](./ag_vpncapture_nwblock.png)
