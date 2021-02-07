@@ -21,7 +21,7 @@ _※AdGuardにDNSフィルタリングだけを担当させる想定_
 
 # 結果
 モバイルで6時間実測（Screen-on Time 2.5時間）。  
-Bluetooth出力で音楽再生、WEBブラウザー2種でニュースや調べ物など。  
+Bluetooth出力で音楽再生、主にブラウザーでニュースや調べ物など。  
 
 全体のCPU時間はユーザー時間＝1h55m37.179s、システム時間＝1h9m15.99s  
 ![CPU Usage](./cpu_usage_whole.png)
